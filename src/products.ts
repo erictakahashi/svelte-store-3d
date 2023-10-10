@@ -17,19 +17,23 @@ export const products: Product[] = [
 	{
 		id: 'xIytq8jNEa6VkxQf',
 		name: 'Metal Bottles',
-		background: '#D2C6BD'
+		background: '#D2C6BD',
+		price: 79
 	},
 	{
 		id: 'L4F6GdTEyPyesg16',
-		name: 'Organic Bottle'
+		name: 'Organic Bottle',
+		price: 99
 	},
 	{
 		id: 'nIlLpfHATL3WB5Aj',
-		name: 'Good Pills'
+		name: 'Good Pills',
+		price: 119
 	},
 	{
 		id: 'cOQAuqPMvJROrPDL',
 		name: 'Designer Chair',
-		background: '#D2C6BD'
+		background: '#D2C6BD',
+		price: 299
 	}
 ];

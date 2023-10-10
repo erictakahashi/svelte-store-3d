@@ -15,7 +15,7 @@
 <div class="box-border grid grid-cols-1 gap-8 sm:grid-cols-2">
 	{#each products as product}
 		<a href={`/products/${product.id}`}>
-			<Model id={product.id} background={product.background} />
+			<Model id={product.id} background={product.background} name={product.name} />
 		</a>
 	{/each}
 </div>

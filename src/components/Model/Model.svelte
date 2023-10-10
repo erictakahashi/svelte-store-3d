@@ -8,6 +8,8 @@
 	 */
 	export let id = '';
 	export let background = '#2D2E32';
+	export let name = '';
+
 	// Internal loading state
 	let loading = true;
 
@@ -22,19 +24,21 @@
 	});
 </script>
 
-<div class="card" style="--background:{background};">
+<div class="card rounded-xl overflow-hidden" style="--background:{background};">
 	{#if loading}
 		<div class="loader">Loading...</div>
 	{/if}
+	{#if name}
+		<span class="text-white text-7xl font-bold m-8 absolute bottom-0">{name}</span>
+	{/if}
+
 	<canvas {id} />
 </div>
 
 <style>
 	.card {
 		position: relative;
-		border-radius: var(--radius);
 		background: var(--background);
-		overflow: hidden;
 		aspect-ratio: 1/1;
 	}
 
