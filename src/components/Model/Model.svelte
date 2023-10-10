@@ -7,6 +7,7 @@
 	 * Unique ID for the canvas to avoid load collisions
 	 */
 	export let id = '';
+	export let background = '#2D2E32';
 	// Internal loading state
 	let loading = true;
 
@@ -21,7 +22,7 @@
 	});
 </script>
 
-<div class="card">
+<div class="card" style="--background:{background};">
 	{#if loading}
 		<div class="loader">Loading...</div>
 	{/if}
@@ -32,7 +33,7 @@
 	.card {
 		position: relative;
 		border-radius: var(--radius);
-		background: var(--color-card);
+		background: var(--background);
 		overflow: hidden;
 		aspect-ratio: 1/1;
 	}
