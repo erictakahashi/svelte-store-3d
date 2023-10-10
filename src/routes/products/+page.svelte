@@ -14,7 +14,9 @@
 
 <div class="products">
 	{#each products as product}
-		<Model id={product.id} background={product.background} />
+		<a href={`/products/${product.id}`}>
+			<Model id={product.id} background={product.background} />
+		</a>
 	{/each}
 </div>
 
