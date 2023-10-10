@@ -2,24 +2,46 @@
 	import { onMount } from 'svelte';
 	import { Application } from '@splinetool/runtime';
 
-	// Unique ID for the canvas to avoid load collisions
-	export let id = 'object';
+	/**
+	 * UUID to the Spline export
+	 * Unique ID for the canvas to avoid load collisions
+	 */
+	export let id = '';
+	// Internal loading state
+	let loading = true;
 
-	onMount(() => {
+	onMount(async () => {
 		const bottles = document.getElementById(id) as HTMLCanvasElement;
 		const app = new Application(bottles);
-		app.load('https://prod.spline.design/xIytq8jNEa6VkxQf/scene.splinecode');
+
+		if (id) {
+			await app.load(`https://prod.spline.design/${id}/scene.splinecode`);
+			loading = false;
+		}
 	});
 </script>
 
 <div class="card">
+	{#if loading}
+		<div class="loader">Loading...</div>
+	{/if}
 	<canvas {id} />
 </div>
 
 <style>
 	.card {
+		position: relative;
 		border-radius: var(--radius);
 		background: var(--color-card);
+		overflow: hidden;
 		aspect-ratio: 1/1;
+	}
+
+	.loader {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		display: grid;
+		place-content: center;
 	}
 </style>
