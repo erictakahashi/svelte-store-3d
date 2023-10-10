@@ -31,8 +31,8 @@ export const products: Product[] = [
 		price: 119
 	},
 	{
-		id: 'cOQAuqPMvJROrPDL',
-		name: 'Designer Chair',
+		id: 'MVRdERpqcODbyCSV',
+		name: 'Designer Tap',
 		background: '#D2C6BD',
 		price: 299
 	}
