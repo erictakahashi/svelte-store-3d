@@ -3,20 +3,14 @@
 	<meta name="description" content="Demo Store" />
 </svelte:head>
 
-<section>
-	<h1>Demo Store 3D</h1>
+<section class="flex flex-col items-center justify-center">
+	<h1 class="my-4 w-full text-3xl font-bold tracking-tight text-gray-600 sm:text-4xl">
+		Demo Store 3D
+	</h1>
 </section>
 
 <style>
 	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
 		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
 	}
 </style>
