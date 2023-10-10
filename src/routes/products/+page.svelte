@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Model from '../../components/Model/Model.svelte';
+	import { products } from '../../products';
 </script>
 
 <svelte:head>
@@ -12,10 +13,11 @@
 </div>
 
 <div class="products">
-	<Model id="xIytq8jNEa6VkxQf" />
-	<Model id="L4F6GdTEyPyesg16" />
-	<Model id="nIlLpfHATL3WB5Aj" />
-	<Model id="cOQAuqPMvJROrPDL" />
+	{#each products as product}
+		<a href={`/products/${product.id}`}>
+			<Model id={product.id} background={product.background} />
+		</a>
+	{/each}
 </div>
 
 <style>
