@@ -7,42 +7,38 @@
 	 * Unique ID for the canvas to avoid load collisions
 	 */
 	export let id = '';
+	export let name = '';
 	export let background = '#2D2E32';
+
 	// Internal loading state
 	let loading = true;
 
 	onMount(async () => {
-		const bottles = document.getElementById(id) as HTMLCanvasElement;
-		const app = new Application(bottles);
+		const canvas = document.getElementById(id) as HTMLCanvasElement;
+		const spline = new Application(canvas);
 
-		if (id) {
-			await app.load(`https://prod.spline.design/${id}/scene.splinecode`);
+		if (!id) return;
+
+		try {
+			await spline.load(`https://prod.spline.design/${id}/scene.splinecode`);
+		} catch (error) {
+			throw error;
+		} finally {
 			loading = false;
 		}
 	});
 </script>
 
-<div class="card" style="--background:{background};">
+<div
+	class="bg-[--background] aspect-square relative rounded-xl overflow-hidden"
+	style="--background:{background};"
+>
 	{#if loading}
-		<div class="loader">Loading...</div>
+		<div class="w-full h-full absolute grid place-content-center">Loading...</div>
 	{/if}
+	{#if name}
+		<span class="text-white text-7xl font-bold m-8 absolute bottom-0">{name}</span>
+	{/if}
+
 	<canvas {id} />
 </div>
-
-<style>
-	.card {
-		position: relative;
-		border-radius: var(--radius);
-		background: var(--background);
-		overflow: hidden;
-		aspect-ratio: 1/1;
-	}
-
-	.loader {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		display: grid;
-		place-content: center;
-	}
-</style>
