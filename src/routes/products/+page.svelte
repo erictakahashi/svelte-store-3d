@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Model from '../../components/Model/Model.svelte';
+	import Model from '../../components/Product/Model.svelte';
 	import { products } from '../../products';
 </script>
 
@@ -15,7 +15,7 @@
 <div class="box-border grid grid-cols-1 gap-8 sm:grid-cols-2">
 	{#each products as product}
 		<a href={`/products/${product.id}`}>
-			<Model id={product.id} background={product.background} name={product.name} />
+			<Model id={product.id} background={product.background} name={product.name} showName />
 		</a>
 	{/each}
 </div>
