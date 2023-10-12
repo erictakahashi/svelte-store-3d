@@ -40,6 +40,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@splinetool/runtime": "^0.9.474"
+		"@splinetool/runtime": "^0.9.480"
 	}
 }
